@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Jai Akash K | Software Developer & AI/ML Engineer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --accent: #2563eb;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      font-size: 10.5pt;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem;
+    }
+
+    /* Print / Action Bar */
+    .action-bar {
+      max-width: 820px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .action-bar a, .action-bar button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .action-bar a:hover, .action-bar button:hover {
+      background: #1d4ed8;
+    }
+
+    .action-bar .back-link {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .action-bar .back-link:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Resume Sheet (A4 Dimensions) */
+    .resume-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.2rem 2.5rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .resume-header {
+      text-align: center;
+      border-bottom: 2px solid var(--primary-dark);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .candidate-name {
+      font-size: 20pt;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .candidate-title {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem 1rem;
+      font-size: 9pt;
+      color: var(--text-muted);
+    }
+
+    .contact-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+
+    .contact-links .highlight-link {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Section Styling */
+    .resume-section {
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-title i {
+      color: var(--accent);
+      font-size: 9pt;
+    }
+
+    /* Executive Summary */
+    .summary-text {
+      font-size: 9.5pt;
+      color: var(--text-main);
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    /* Item Block */
+    .item-block {
+      margin-bottom: 0.75rem;
+    }
+
+    .item-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.15rem;
+    }
+
+    .item-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .item-subtitle {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .item-date {
+      font-size: 8.5pt;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .item-tech {
+      font-size: 8.5pt;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Bullet Points */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 9pt;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+      line-height: 1.45;
+      text-align: justify;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .bullet-list li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Skills Table / Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+    }
+
+    .skills-table td {
+      padding: 0.25rem 0;
+      vertical-align: top;
+    }
+
+    .skills-table .skill-cat {
+      width: 28%;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .skills-table .skill-items {
+      width: 72%;
+      color: var(--text-main);
+    }
+
+    /* Education Details */
+    .education-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cgpa-tag {
+      display: inline-block;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 8.5pt;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      margin-top: 0.2rem;
+    }
+
+    /* Certifications Grid */
+    .certs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem 1.5rem;
+      font-size: 9pt;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .cert-item i {
+      color: var(--accent);
+      font-size: 7.5pt;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        font-size: 9.5pt;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .resume-header {
+        border-bottom-color: #000;
+      }
+
+      .section-title {
+        border-bottom-color: #ccc;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      @page {
+        margin: 1.2cm 1.2cm 1.2cm 1.2cm;
+        size: A4 portrait;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Action Bar -->
+  <div class="action-bar">
+    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    <div style="display: flex; gap: 0.75rem;">
+      <button onclick="window.print()"><i class="fa-solid fa-print"></i> Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <!-- Main Resume Content -->
+  <main class="resume-container">
+    
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 class="candidate-name">JAI AKASH K</h1>
+      <div class="candidate-title">Computer Science Engineer | Software Developer</div>
+      <div class="contact-links">
+        <a href="tel:+916381849926"><i class="fa-solid fa-phone"></i> +91 6381849926</a>
+        <span>•</span>
+        <a href="mailto:jaiakashkarthikeyan@gmail.com"><i class="fa-solid fa-envelope"></i> jaiakashkarthikeyan@gmail.com</a>
+        <span>•</span>
+        <a href="https://jaiakash-codesio.github.io/my-portfolio/" target="_blank" class="highlight-link"><i class="fa-solid fa-globe"></i> Portfolio Website</a>
+        <span>•</span>
+        <a href="https://linkedin.com/in/jai-akash-k" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/jai-akash-k</a>
+        <span>•</span>
+        <a href="https://github.com/JaiAkash-CodesIO" target="_blank"><i class="fa-brands fa-github"></i> github.com/JaiAkash-CodesIO</a>
+      </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-user"></i> Executive Summary</h2>
+      <p class="summary-text">
+        Dedicated and motivated Computer Science Engineer with strong foundations in software architecture, algorithm design, and backend engineering. Experienced in building robust Java (Spring Boot) and Python (FastAPI/Flask) REST services, training machine learning pipelines with bias mitigation, and deploying optimized real-time Computer Vision models (YOLO, ONNX). Seeking a Software Development role to contribute to scalable systems, learn continuously, and deliver high-impact engineering solutions.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-code"></i> Technical Skills</h2>
+      <table class="skills-table">
+        <tr>
+          <td class="skill-cat">Programming Languages:</td>
+          <td class="skill-items"><strong>Java, Python, SQL, JavaScript (ES6+), C/C++</strong></td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Backend & Web:</td>
+          <td class="skill-items"><strong>Spring Boot, FastAPI, Flask, RESTful APIs, Node.js, Express.js, React.js, HTML5, CSS3</strong></td>
+        </tr>
+        <tr>
+          <td class="skill-cat">AI / ML & Computer Vision:</td>
+          <td class="skill-items"><strong>YOLO, OpenCV, ONNX Runtime, Scikit-Learn, Neural Networks (MLP), Fairness-AI / Bias Mitigation</strong></td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Cloud, Tools & Platforms:</td>
+          <td class="skill-items"><strong>Docker (Hub, Compose), GCP, Git & GitHub, Linux, Maven, Postman</strong></td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Databases:</td>
+          <td class="skill-items"><strong>MySQL, MongoDB, Firebase</strong></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Experience & Internships -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Training & Internship Experience</h2>
+      
+      <!-- DIGISAILOR -->
+      <div class="item-block">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Software Development Intern</span>
+            <span class="item-subtitle"> | DIGISAILOR</span>
+          </div>
+          <span class="item-date">July 2026</span>
+        </div>
+        <div class="item-tech">Tech Stack: Python, YOLO, OpenCV, ONNX, FastAPI, RTSP Streaming</div>
+        <ul class="bullet-list">
+          <li>Developed AI-based object detection solutions using <strong>Python, YOLOv8, OpenCV, and ONNX Runtime</strong> for real-time item tracking.</li>
+          <li>Built high-throughput <strong>FastAPI web applications</strong> to handle live camera/RTSP video streaming and telemetry monitoring with low latency.</li>
+          <li>Orchestrated full model lifecycle including custom dataset curation, bounding-box annotation, training, validation, and edge deployment.</li>
+        </ul>
+      </div>
+
+      <!-- Microsoft - SAP -->
+      <div class="item-block">
+        <div class="item-header">
+          <div>
+            <span class="item-title">MERN Stack Development Intern / Trainee</span>
+            <span class="item-subtitle"> | Microsoft - SAP Initiative</span>
+          </div>
+          <span class="item-date">March 2025</span>
+        </div>
+        <div class="item-tech">Tech Stack: React.js, Node.js, Express.js, MongoDB, REST APIs, JWT</div>
+        <ul class="bullet-list">
+          <li>Gained intensive hands-on experience building responsive full-stack applications with <strong>MongoDB, Express.js, React.js, and Node.js</strong>.</li>
+          <li>Implemented secure <strong>RESTful API architectures</strong>, stateless JWT authentication, and optimized MongoDB aggregation queries.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> Key Technical Projects</h2>
+
+      <!-- Project 1: Loan Fairness Auditor -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Loan Fairness Auditor — AI System for Bias Detection & Mitigation</span>
+          <span class="item-date">Python | ML | Fairness-AI</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Built an end-to-end Machine Learning pipeline detecting and mitigating demographic (gender/race) disparities in credit scoring systems.</li>
+          <li>Trained a two-layer <strong>Neural Network (MLPClassifier)</strong> achieving a baseline accuracy of <strong>84.2%</strong>.</li>
+          <li>Implemented demographic parity weighting and equalized odds optimization, reducing the bias gap from <strong>18.8% to 11.9%</strong> while improving accuracy to <strong>86.5%</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2: Real-Time Carton Detection -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Real-Time Carton Detection & RTSP Monitoring System</span>
+          <span class="item-date">YOLO | ONNX | FastAPI | OpenCV</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Collected and annotated custom industrial package datasets for high-accuracy bounding box detection under variable lighting.</li>
+          <li>Architected a <strong>FastAPI web dashboard</strong> streaming live RTSP camera feeds with real-time detection overlays.</li>
+          <li>Exported model to <strong>ONNX runtime</strong>, achieving sub-millisecond edge inference and ~4x CPU execution acceleration.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3: Spring Boot Microservices -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Enterprise Spring Boot REST API & Microservice Engine</span>
+          <span class="item-date">Java | Spring Boot | MySQL | Docker</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Designed scalable layered backend services with <strong>Spring Boot 3.x, Spring Data JPA, and MySQL</strong> persistence.</li>
+          <li>Integrated Spring Security with stateless JWT token validation, role-based authorization (RBAC), and automated Maven builds.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+      <div class="item-block">
+        <div class="education-row">
+          <div>
+            <div class="item-title">Bachelor of Engineering (B.E.) in Computer Science & Engineering</div>
+            <div class="item-subtitle">University College of Engineering, Tindivanam (Anna University Constituent)</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="item-date">2022 — 2026</div>
+            <div class="cgpa-tag">CGPA: 8.34 / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-award"></i> Certifications & Credentials</h2>
+      <div class="certs-list">
+        <div class="cert-item"><i class="fa-solid fa-circle-check"></i> <strong>Google Gen-AI Certification</strong> — Google</div>
+        <div class="cert-item"><i class="fa-solid fa-circle-check"></i> <strong>Programming in Java (Elite Grade)</strong> — NPTEL / IIT</div>
+        <div class="cert-item"><i class="fa-solid fa-circle-check"></i> <strong>MERN Stack Web Development</strong> — Edunet / Microsoft</div>
+        <div class="cert-item"><i class="fa-solid fa-circle-check"></i> <strong>Google Data Analytics</strong> — Google</div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
