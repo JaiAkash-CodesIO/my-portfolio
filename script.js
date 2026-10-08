@@ -292,7 +292,8 @@ function initInteractiveTerminal() {
         1. <strong>Loan Fairness Auditor:</strong> End-to-end ML bias detection pipeline reducing demographic bias gap to 11.9% with 86.5% accuracy.<br>
         2. <strong>Real-Time Carton Detection:</strong> Industrial YOLO + ONNX + OpenCV computer vision system streaming live RTSP feeds via FastAPI.<br>
         3. <strong>Spring Boot REST API Engine:</strong> High-performance Java microservice with JWT authentication and MySQL persistence.<br>
-        4. <strong>MERN Full-Stack Platform:</strong> Interactive React & Node.js application with MongoDB aggregation.
+        4. <strong>MERN Full-Stack Platform:</strong> Interactive React & Node.js application with MongoDB aggregation.<br>
+        5. <strong>VLM Image Captioning & VQA:</strong> Vision-Language application using BLIP and Transformers for dynamic image captioning and Q&A.
       </div>
     `,
     experience: `
